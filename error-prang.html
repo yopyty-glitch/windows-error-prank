@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error Prank Demo</title>
+<style>
+body {
+  margin: 0;
+  background: #0878d1;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  overflow: auto;
+}
+header {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.window {
+  background: white;
+  color: #222;
+  width: 280px;
+  margin: 15px auto;
+  padding: 18px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px #003b6b66;
+}
+.window h3 {
+  margin-top: 0;
+}
+button {
+  padding: 10px 20px;
+  background: #0878d1;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#closeAll {
+  display: block;
+  margin: 15px auto;
+  background: #b42318;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Windows Error Demo</h1>
+  <p>Just a harmless prank simulation!</p>
+</header>
+
+<div id="errors"></div>
+
+<button id="closeAll" onclick="closeAll()">
+  Close All Errors
+</button>
+
+<script>
+const errors = document.getElementById("errors");
+
+function addError() {
+  const box = document.createElement("div");
+  box.className = "window";
+  box.innerHTML = `
+    <h3>⚠ Error Demo</h3>
+    <p>This is a fake Windows error message.</p>
+    <p>Your computer is safe. This is only a prank!</p>
+    <button onclick="this.parentElement.remove()">
+      OK
+    </button>
+  `;
+  errors.appendChild(box);
+}
+
+for (let i = 0; i < 5; i++) {
+  addError();
+}
+
+function closeAll() {
+  errors.innerHTML = "";
+}
+</script>
+
+</body>
+</html>
